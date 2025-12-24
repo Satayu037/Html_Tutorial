@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop: HTML Text Formatting</title>
+    <style>
+        /* --- 1. Global Variables: Minimal Theme --- */
+        :root {
+            --bg-body: #fafafa;
+            --bg-card: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --primary: #4a5568;       /* สีหัวข้อ Slate Blue */
+            --accent: #3182ce;        /* สีลิงก์ Blue */
+            --success: #00a884;       /* สีเขียว (ตาม PDF Module 2) */
+            --warning-bg: #fffaf0;    /* พื้นหลังกล่อง Note */
+            --warning-text: #9c4221;  /* สีตัวหนังสือ Note */
+            --error-bg: #fff5f5;      /* พื้นหลังกล่อง Box (Error) */
+            --error-text: #c53030;    /* สีตัวหนังสือ Box */
+            --border-color: #e2e8f0;
+            --highlight-pink: #c4005a; /* สีชมพูแดง (ตาม PDF Module 1) */
+            --code-bg: #f7f9fa;
+            --code-text: #e53e3e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        /* --- Header --- */
+        h1 {
+            text-align: center;
+            color: var(--text-main);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        body > .container > p { /* คำอธิบายใต้หัวข้อ */
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        /* --- Card Styling --- */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Card ใบสุดท้าย (Student Area) ให้มีขอบบนสีเขียว เหมือน Module 2 ใน PDF */
+        .card:last-of-type {
+            border-top: 4px solid var(--success);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--bg-body);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            margin-top: 0;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* --- List Styling --- */
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 25px;
+        }
+
+        .card ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+
+        .card ul li::before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* --- Special Boxes --- */
+        /* กล่องแดง (Not Supported) */
+        .box {
+            background-color: var(--error-bg);
+            border: 1px solid #feb2b2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 25px;
+            color: var(--error-text);
+        }
+        .box p {
+            font-weight: bold;
+            color: var(--error-text);
+            margin-bottom: 10px;
+        }
+        .box ul { margin-bottom: 0; }
+        .box ul li {
+            border-bottom: none;
+            padding: 4px 0;
+            color: var(--error-text);
+        }
+        .box ul li::before {
+            content: "×";
+            color: var(--error-text);
+        }
+
+        /* กล่องส้ม (Note) */
+        .note {
+            background-color: var(--warning-bg);
+            border-left: 4px solid #ed8936;
+            color: var(--warning-text);
+            padding: 15px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 25px;
+        }
+
+        /* --- Code & Inline Tags Styling --- */
+        code {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+            margin-right: 8px;
+        }
+
+        /* --- Button --- */
+        a.btn-back {
+            display: inline-block;
+            color: var(--text-muted);
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            background-color: white;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            margin-bottom: 40px;
+        }
+
+        a.btn-back:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Helper class สำหรับโจทย์ข้อความสีแดงชมพู */
+        .highlight-text {
+            color: var(--highlight-pink);
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Workshop: HTML Text Formatting</h1>
+    <p>ฝึกใช้แท็กรูปแบบข้อความ (Formatting Tags) เพื่อสร้างเนื้อหาที่อ่านง่ายและเป็นระเบียบ</p>
+
+    <section class="card">
+        <h2>1. สิ่งที่ต้องรู้ก่อนเริ่มทำ Workshop</h2>
+
+        <p>HTML มีแท็กสำหรับจัดรูปแบบข้อความ ทำให้เนื้อหาดูเด่น อ่านง่าย และสื่อความหมายได้ดีขึ้น</p>
+
+        <ul>
+            <li><code>&lt;b&gt;</code> <b>ตัวหนา (เน้นเฉย ๆ)</b></li>
+            <li><code>&lt;strong&gt;</code> <strong>ตัวหนาแบบ "สำคัญ" เชิงความหมาย (semantic importance)</strong></li>
+            <li><code>&lt;i&gt;</code> <i>ตัวเอียง (ใช้กับศัพท์เฉพาะหรือตัวเน้น)</i></li>
+            <li><code>&lt;em&gt;</code> <em>ตัวเอียงแบบเน้นน้ำเสียง</em></li>
+            <li><code>&lt;u&gt;</code> <u>ขีดเส้นใต้</u></li>
+            <li><code>&lt;ins&gt;</code> <ins>ขีดเส้นใต้ (แทรกข้อความ)</ins></li>
+            <li><code>&lt;mark&gt;</code> <mark>ไฮไลต์ข้อความ</mark></li>
+            <li><code>&lt;code&gt;</code> <code>แสดงข้อความเป็นรูปแบบโค้ด</code></li>
+            <li><code>&lt;small&gt;</code> <small>ข้อความขนาดเล็ก</small></li>
+            <li><code>&lt;del&gt;</code> <del>ข้อความขีดฆ่า</del></li>
+            <li><code>&lt;s&gt;</code> <s>ข้อความขีดฆ่า (สไตล์)</s></li>
+            <li><code>&lt;sub&gt;</code> ตัวห้อย เช่น H<sub>2</sub>O</li>
+            <li><code>&lt;sup&gt;</code> ตัวยก เช่น x<sup>2</sup></li>                
+        </ul>
+
+        <div class="box">
+            <p>แท็กที่ไม่รองรับใน HTML5</p>
+            <ul>
+                <li><code>&lt;strike&gt;</code> – not supported in HTML5</li>
+                <li><code>&lt;big&gt;</code> – not supported in HTML5</li>
+                <li><code>&lt;tt&gt;</code> – not supported in HTML5</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            นักศึกษาต้องใช้แท็ก formatting อย่างน้อย 5 ชนิดในงานนี้
+        </div>
+    </section>
+   
+    <section class="card">
+        <h2>2. ภารกิจสำหรับนักศึกษา</h2>
+        <p>ให้ค้นหาเนื้อหาเกี่ยวกับ <b>“เทคโนโลยีคอมพิวเตอร์สมัยใหม่”</b> โดยต้องมี:</p>
+
+        <ul>
+            <li>หัวข้อ <code>&lt;h1&gt;</code> 1 อัน</li>
+            <li>ย่อหน้า <code>&lt;p&gt;</code> อย่างน้อย 3 ย่อหน้า</li>
+            <li>ใช้แท็ก formatting อย่างน้อย <b>5 ประเภท</b></li>
+            <li>ข้อความไหนมีการจัด formatting ให้ <span class="highlight-text">ใส่สีข้อความเป็นสีแดงชมพู</span></li>
+        </ul>
+    </section>
+
+    <section class="card">
+        <h2>บล็อกนี้สำหรับนักศึกษาหาเนื้อหามาใส่เอง</h2>
+        <p>เอาเนื้อหามาใส่ในนี้</p>
+        <br>
+        <br>
+        </section>
+
+    <a href="index.html" class="btn-back">← Back to HTML Tutorial</a>
+
+</div>
+
+</body>
+</html>

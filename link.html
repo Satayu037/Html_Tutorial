@@ -1,36 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workshop: Creating Links</title>
+    <title>Workshop: Various Links</title>
+    
     <style>
-        /* --- 1. Global Variables: Merge with Minimal Theme --- */
+        /* --- 1. Global Variables: Minimal Theme (จาก Formatting) --- */
         :root {
-            /* Theme Colors (From Index) */
             --bg-body: #fafafa;
             --bg-card: #ffffff;
             --text-main: #333333;
             --text-muted: #666666;
             --primary: #4a5568;       /* Slate Blue */
             --accent: #3182ce;        /* Blue */
-            --code-bg: #f7f9fa;
-            --code-text: #2d3748;
+            --success: #00a884;       /* Green */
+            --warning-bg: #fffaf0;    
+            --warning-text: #9c4221;
+            --error-bg: #fff5f5;      
+            --error-text: #c53030;    
             --border-color: #e2e8f0;
-            --btn-bg: #edf2f7;
+            --highlight-pink: #d53f8c; 
+            --code-bg: #f7f9fa;
+            --code-text: #e53e3e;
             
-            /* Custom Colors for Link Workshop */
-            --btn-yellow-bg: #fffaf0;
-            --btn-yellow-text: #9c4221;
-            --btn-purple-bg: #553c9a;
-
-            /* Colors for Glowing Buttons (Preserved) */
-            --glow-orange: #dd6b20;
-            --glow-red: #e53e3e;
-            --glow-black: #2d3748;
+            /* Additional Colors mapped to your classes */
+            --color-purple: #805ad5;
+            --color-yellow: #d69e2e; /* ปรับให้เข้มขึ้นเพื่อให้อ่านง่ายบนพื้นขาว */
+            --color-orange: #dd6b20;
+            --color-red: #e53e3e;
+            --color-black: #2d3748;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             background-color: var(--bg-body);
@@ -38,145 +44,285 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.7;
             padding: 60px 20px;
+            display: block; /* แก้จาก flex เพื่อให้เหมือน formatting */
         }
 
-        .container { max-width: 850px; margin: 0 auto; }
+        /* จัดกึ่งกลางเหมือน Formatting */
+        body > h1, body > p, .card, footer {
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-        /* --- Header (Matched Index) --- */
-        header { text-align: center; margin-bottom: 50px; }
-        header h1 {
-            color: var(--text-main);
-            font-size: 2.5rem;
+        /* --- Header --- */
+        h1.main-title {
+            text-align: center;
+            color: var(--text-main); /* เปลี่ยนจากสีชมพูเป็นสีหลัก */
+            font-size: 2.2rem;
             margin-bottom: 10px;
-            letter-spacing: -1px;
+            font-weight: 700;
         }
-        header p { color: var(--text-muted); font-size: 1.1rem; }
 
-        /* --- Card Styling (Adapted to Theme) --- */
+        p.subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        /* --- Card Styling (Minimal) --- */
         .card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: 12px; /* ใช้ 12px เหมือน formatting */
+            padding: 40px;
             margin-bottom: 40px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
         }
-        
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Mapping Border Classes ให้เข้ากับ Theme (แบบเส้นบาง Clean) */
+        .card.border-pink { border-top: 4px solid var(--highlight-pink); }
+        .card.border-blue { border-top: 4px solid var(--accent); }
+        .card.border-red { border-top: 4px solid var(--color-red); }
+        .card.border-orange { border-top: 4px solid var(--color-orange); }
+        .card.border-purple { border-top: 4px solid var(--color-purple); }
+
         .card h2 {
             color: var(--primary);
             font-size: 1.5rem;
-            margin-top: 0;
-            margin-bottom: 20px;
+            border-bottom: 2px solid var(--bg-body);
             padding-bottom: 15px;
-            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 25px;
+            margin-top: 0;
+            font-weight: 700;
         }
 
-        /* --- Code Block (Matched Index Style) --- */
-        pre {
-            background-color: var(--code-bg);
-            color: var(--code-text);
+        p.desc {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        /* --- Elements ภายใน Card --- */
+        .link-box {
             border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent); /* Signature Style */
             border-radius: 8px;
             padding: 20px;
-            font-family: 'SFMono-Regular', Consolas, monospace;
-            font-size: 0.95rem;
-            white-space: pre-wrap;
-            margin: 20px 0;
+            margin-bottom: 20px;
+            background-color: #fff; /* พื้นขาว */
         }
-        .inline-code {
+        
+        .link-title {
+            color: var(--accent); /* เปลี่ยนเป็นสีฟ้า Theme */
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .link-title:hover { text-decoration: underline; color: var(--primary); }
+
+        .code-tag {
             background-color: var(--code-bg);
             padding: 2px 6px;
             border-radius: 4px;
             font-family: monospace;
-            color: #e53e3e;
+            color: var(--code-text);
+            font-size: 0.9rem;
             border: 1px solid var(--border-color);
-            font-size: 0.9em;
         }
 
-        /* --- Links & Examples --- */
-        .link-example-box {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 15px;
-            background-color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        /* ปรับ Code Block ให้เหมือน Formatting */
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-left: 4px solid var(--primary); /* เปลี่ยนเป็นสี Primary */
+            font-family: 'SFMono-Regular', Consolas, monospace;
+            color: var(--text-main);
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            white-space: pre-wrap; /* เพื่อให้ code ไม่ล้น */
         }
-        .link-main {
+
+        .text-link {
             color: var(--accent);
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-decoration: none;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 500;
         }
-        .link-main:hover { text-decoration: underline; color: var(--primary); }
+        .text-link:hover { color: var(--primary); }
+
+        /* --- Buttons Style Remapping (ทำให้ Clean ไม่ Glow) --- */
         
-        /* --- Standard Buttons --- */
-        .btn {
+        /* ปุ่มพื้นฐานใน Theme */
+        button, .btn-std {
+            border: 1px solid var(--border-color);
+            background-color: white;
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        button:hover, .btn-std:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: var(--bg-body);
+            box-shadow: none; /* ลบเงา Glow */
+        }
+
+        /* .btn-yellow (ปรับเป็นสไตล์ Minimal Warning) */
+        .btn-yellow {
+            background-color: #fefcbf;
+            color: #744210;
+            border: 1px solid #f6e05e;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
             display: inline-block;
+            transition: all 0.2s;
+        }
+        .btn-yellow:hover {
+            background-color: #faf089;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* เงาบางๆ */
+        }
+
+        /* .btn-purple (ปรับเป็น Solid Flat) */
+        .btn-purple {
+            background-color: var(--color-purple);
+            color: white;
             padding: 10px 24px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 500;
-            cursor: pointer;
+            display: inline-block;
+            border: none;
+            margin-bottom: 20px;
             transition: all 0.2s;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            border: 1px solid transparent;
         }
-        .btn-std { background-color: white; border-color: var(--border-color); color: var(--text-main); }
-        .btn-std:hover { border-color: var(--primary); color: var(--primary); }
+        .btn-purple:hover {
+            background-color: #6b46c1; /* เข้มขึ้นนิดหน่อย */
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* เงาธรรมชาติ */
+        }
 
-        .btn-yellow { background-color: var(--btn-yellow-bg); color: var(--btn-yellow-text); border: 1px solid #f6e05e; }
-        .btn-yellow:hover { background-color: #faf089; }
+        .tag-gray {
+            background-color: var(--bg-body);
+            border: 1px solid var(--border-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+            color: var(--text-muted);
+        }
 
-        .btn-purple { background-color: var(--btn-purple-bg); color: white; }
-        .btn-purple:hover { background-color: #44337a; transform: translateY(-1px); }
-
-        /* --- ✨ Glowing Buttons (Preserved) ✨ --- */
+        /* --- Fancy Buttons Grid (ปรับให้เรียบ) --- */
         .fancy-buttons-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             margin-top: 30px;
             text-align: center;
-            background: var(--code-bg); /* Highlight background */
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px dashed var(--border-color);
-        }
-        .grid-header { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* 1. Flat Glow */
-        .btn-orange-flat { background-color: var(--glow-orange); color: white; border-radius: 6px; box-shadow: 0 4px 15px rgba(221, 107, 32, 0.4); }
-        .btn-orange-flat:hover { background-color: #c05621; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(221, 107, 32, 0.6); }
-
-        /* 2. Round Glow */
-        .btn-orange-red { background-color: var(--glow-red); color: white; border-radius: 50px; box-shadow: 0 4px 15px rgba(229, 62, 62, 0.4); }
-        .btn-orange-red:hover { background-color: #c53030; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(229, 62, 62, 0.7); }
-
-        /* 3. Dark Glow */
-        .btn-black { background-color: var(--glow-black); color: white; border-radius: 6px; box-shadow: 0 4px 15px rgba(45, 55, 72, 0.4); }
-        .btn-black:hover { background-color: #1a202c; transform: translateY(-2px); box-shadow: 0 6px 22px rgba(45, 55, 72, 0.6); }
-
-        /* --- Images & Footer --- */
-        .yt-logo { width: 150px; border-radius: 8px; border: 1px solid var(--border-color); transition: transform 0.2s; }
-        .yt-logo:hover { transform: scale(1.02); }
-        
-        .note { 
-            background-color: #fffaf0; 
-            border-left: 4px solid #ed8936; 
-            color: #9c4221; 
-            padding: 15px 20px; 
-            border-radius: 4px; 
-            margin-top: 20px; 
-            font-size: 0.95rem;
+            align-items: end;
         }
 
-        footer { text-align: center; margin-top: 40px; padding-top: 20px; }
-        
+        .grid-header {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* .btn-orange-flat */
+        .btn-orange-flat {
+            background-color: var(--color-orange);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-orange-flat:hover {
+            background-color: #c05621;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* .btn-orange-red (Round) */
+        .btn-orange-red {
+            background-color: var(--color-red);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px; /* คงความกลมไว้ */
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-orange-red:hover {
+            background-color: #c53030;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* .btn-black (เปลี่ยนจาก Black/Gold Glow เป็น Dark Slate Clean) */
+        .btn-black {
+            background-color: var(--color-black);
+            color: white;
+            border: 1px solid var(--color-black);
+            padding: 10px 24px;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        .btn-black:hover {
+            background-color: #1a202c;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-shadow: none; /* ลบเรืองแสง */
+        }
+
+        /* --- Image Link --- */
+        .yt-logo {
+            width: 150px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color); /* เพิ่มขอบให้ดูเรียบร้อย */
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+        .yt-logo:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .footer-note {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+            background-color: var(--bg-body);
+            padding: 10px;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent); /* ใช้สีฟ้า Theme */
+        }
+        .footer-note span.icon { margin-right: 8px; }
+
+        .highlight-gray {
+            background-color: #e2e8f0;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        /* --- Back Button --- */
         a.btn-back {
             display: inline-block;
             color: var(--text-muted);
@@ -187,111 +333,142 @@
             background-color: white;
             font-size: 0.9rem;
             transition: all 0.2s;
+            margin-top: 20px;
+            margin-bottom: 40px;
         }
+
         a.btn-back:hover {
             color: var(--primary);
             border-color: var(--primary);
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
+        
+        footer { text-align: center; }
 
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <header>
-            <h1>Creating Links</h1>
-            <p>เรียนรู้การสร้างลิงก์รูปแบบต่างๆ ใน HTML</p>
-        </header>
-        
-        <main>
-            <div class="card">
-                <h2>1. External Links</h2>
-                <p>การเชื่อมโยงไปยังเว็บไซต์ภายนอก</p>
-                <div class="link-example-box">
-                    <a href="https://www.wikipedia.org" target="_blank" class="link-main">Visit Wikipedia</a>
-                    <span style="font-size:0.9rem; color:var(--text-muted);">target="_blank" (New Tab)</span>
-                </div>
-                <div class="link-example-box">
-                    <a href="https://www.google.com" target="_self" class="link-main">Visit Google</a>
-                    <span style="font-size:0.9rem; color:var(--text-muted);">target="_self" (Same Tab)</span>
-                </div>
+    <h1 class="main-title">Workshop: Various Links</h1>
+    <p class="subtitle">เรียนรู้ลิงก์หลายรูปแบบ พร้อมตัวอย่างและแบบฝึกหัด</p>
+
+    <div class="card border-pink">
+        <h2>1. External Links</h2>
+        <div class="link-box">
+            <a href="https://www.wikipedia.org" target="_blank" class="link-title">Visit Wikipedia</a>
+            <div>
+                <span class="code-tag">target="_blank"</span> <span style="font-size:14px; color:#666;">เปิดลิงก์ในแท็บใหม่</span>
             </div>
-
-            <div class="card">
-                <h2>2. Internal Links & Anchor</h2>
-                <pre><code>&lt;a href="about.html"&gt;About Us&lt;/a&gt;
-&lt;a href="#jump"&gt;Jump to Section&lt;/a&gt;
-&lt;h3 id="jump"&gt;Target&lt;/h3&gt;</code></pre>
-                
-                <div style="padding: 20px; background:var(--bg-body); border-radius:8px; text-align:center;">
-                    <a href="#jump" style="color:var(--accent); text-decoration:underline;">Click to Jump ↓</a>
-                    <div style="height: 20px;"></div>
-                    <h3 id="jump" style="color:var(--primary);">🎯 This is the jump target.</h3>
-                </div>
+        </div>
+        <div class="link-box">
+            <a href="https://www.google.com" target="_self" class="link-title">Visit Google</a>
+            <div>
+                <span class="code-tag">target="_self"</span> <span style="font-size:14px; color:#666;">เปิดลิงก์ในหน้าเดิม</span>
             </div>
-
-            <div class="card">
-                <h2>3. Email Links</h2>
-                <pre><code>&lt;a href="mailto:student@example.com?subject=Hello"&gt;Send&lt;/a&gt;</code></pre>
-                <a href="mailto:student@example.com?subject=Hello" style="color:var(--accent); text-decoration:underline;">Send an Email Example</a>
-            </div>
-
-            <div class="card">
-                <h2>4. Download Links</h2>
-                <pre><code>&lt;a href="files/sample.txt" download&gt;Download File&lt;/a&gt;</code></pre>
-                <div style="margin-top: 20px;"><button class="btn btn-yellow">Download Text File</button></div>
-            </div>
-
-            <div class="card">
-                <h2>5. Button Links & Fancy Buttons</h2>
-                <p>การตกแต่งลิงก์หรือปุ่มให้สวยงามน่ากด</p>
-
-                <pre><code>&lt;a href="..." class="btn-link"&gt;Visit&lt;/a&gt;</code></pre>
-                
-                <div style="margin-bottom: 30px;">
-                    <a href="#" class="btn btn-purple">Visit Website</a>
-                    <button class="btn btn-std">HTML Tutorial</button>
-                </div>
-
-                <div class="fancy-buttons-grid">
-                    <div>
-                        <div class="grid-header">Flat Glow</div>
-                        <button class="btn btn-orange-flat">HTML Tutorial</button>
-                    </div>
-
-                    <div>
-                        <div class="grid-header">Round Glow</div>
-                        <button class="btn btn-orange-red">SUBSCRIBE</button>
-                    </div>
-
-                    <div>
-                        <div class="grid-header">Dark Glow</div>
-                        <button class="btn btn-black">SUBSCRIBE</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>6. Image Link</h2>
-                <pre><code>&lt;a href="https://youtube.com"&gt;
-  &lt;img src="logo.jpg"&gt;
-&lt;/a&gt;</code></pre>
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="https://www.youtube.com" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" class="yt-logo">
-                    </a>
-                </div>
-                <div class="note">💡 Tip: ต้องเก็บรูปไว้ในโฟลเดอร์ให้ถูกต้อง เช่น <span class="inline-code">images/photo.jpg</span></div>
-            </div>
-
-        </main>
-
-        <footer>
-            <a href="index.html" class="btn-back">← Back to Tutorials</a>
-        </footer>
-        
+        </div>
     </div>
+
+    <div class="card border-blue">
+        <h2>2. Internal Links & Anchor Links</h2>
+        <div class="code-block">&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+&lt;a href="#jump"&gt;Jump to Section&lt;/a&gt;
+&lt;h3 id="jump"&gt;This is the jump target&lt;/h3&gt;</div>
+        
+        <a href="#jump" class="text-link" style="display:block; margin-bottom:15px;">Click to Jump</a>
+        <h3 id="jump" style="color:var(--text-main);">This is the jump target.</h3>
+    </div>
+
+    <div class="card border-red">
+        <h2>3. Email Links</h2>
+        <div class="code-block" style="border-left-color: var(--color-red);">
+&lt;a href="mailto:student@example.com?subject=Hello"&gt;
+Send an Email
+&lt;/a&gt;</div>
+        <a href="mailto:student@example.com?subject=Hello" class="text-link">Send an Email</a>
+    </div>
+
+    <div class="card border-orange">
+        <h2>4. Download Links</h2>
+        <div class="code-block" style="border-left-color: var(--color-orange);">
+&lt;a href="files/sample.txt" download&gt;Download File&lt;/a&gt;</div>
+        
+        <a href="#" class="btn-yellow">Download Text File</a>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">ต้องมีไฟล์ในโฟลเดอร์จึงจะดาวน์โหลดได้จริง</div>
+    </div>
+
+    <div class="card border-purple">
+        <h2>5. Button Link</h2>
+        <p class="desc">ลิงก์ที่ออกแบบให้คล้ายปุ่ม เหมาะกับปุ่มสมัคร ปุ่มอ่านเพิ่มเติม หรือปุ่มนำทาง</p>
+
+        <div class="code-block">&lt;a href="https://www.example.com" class="btn-link"&gt;
+Visit Website
+&lt;/a&gt;</div>
+
+        <a href="#" class="btn-purple">Visit Website</a>
+
+        <div style="margin-top: 25px; margin-bottom: 15px;">
+            สร้างปุ่มด้วยแท็ก <span class="tag-gray">button</span>
+        </div>
+
+        <div class="code-block">&lt;button onclick="document.location='index.html'"&gt;HTML Tutorial&lt;/button&gt;
+- มักใช้เมื่อลิงก์ไป หน้าในเว็บเดียวกัน
+
+&lt;button onclick="location.href='https://www.example.com'"&gt;Visit Website&lt;/button&gt;
+- นิยมใช้มากกว่า เหมาะทั้งลิงก์ภายในและภายนอก</div>
+
+        <div style="margin-bottom: 40px;">
+            <button class="btn-std">HTML Tutorial</button>
+            <button class="btn-std">Visit Website</button>
+        </div>
+
+        <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 30px 0;">
+        
+        <div class="fancy-buttons-grid">
+            <div>
+                <div class="grid-header">ปุ่ม document.location</div>
+                <button class="btn-orange-flat" style="margin-bottom: 30px;">HTML Tutorial</button>
+                <div class="grid-header">เพิ่มขอบ (Clean Style)</div>
+                <button class="btn-orange-red">SUBSCRIBE</button>
+            </div>
+
+            <div>
+                <div class="grid-header">ปุ่ม location.href</div>
+                <button class="btn-orange-flat" style="margin-bottom: 30px;">Visit Website</button>
+                <div class="grid-header">ปุ่มสีเข้ม (Dark Slate)</div>
+                <button class="btn-black">SUBSCRIBE</button>
+            </div>
+
+            <div>
+                <div class="grid-header">ตัวอย่างปุ่ม Fancy</div>
+                <button class="btn-black" style="margin-bottom: 30px;">SUBSCRIBE</button>
+                <div class="grid-header">ปุ่มสีเข้ม (Dark Slate)</div>
+                <button class="btn-black">SUBSCRIBE</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-orange">
+        <h2>6. Image Link</h2>
+        <p class="desc">คลิกที่รูปภาพเพื่อเปิดลิงก์</p>
+
+        <div class="code-block" style="border-left-color: var(--color-orange);">
+&lt;a href="https://youtube.com"&gt;
+&lt;img src="images/sample.jpg" width="250"&gt;
+&lt;/a&gt;</div>
+
+        <a href="https://www.youtube.com" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" class="yt-logo">
+        </a>
+
+        <div class="footer-note">
+            <span class="icon">💡</span>
+            <span>หากต้องการใช้รูปของตนเอง ต้องเก็บรูปไว้ในโฟลเดอร์ เช่น <span class="highlight-gray">images/photo.jpg</span></span>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html" class="btn-back">← Back to Tutorials</a>
+    </footer>
+
 </body>
 </html>

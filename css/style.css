@@ -3,389 +3,447 @@
 
 /* ============ 1. Global Variables: Modern Soft Theme ============ */
 :root {
-  --bg-body: #f3f4f6;
-  --bg-gradient: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-  --bg-card: #ffffff;
+    --bg-body: #f3f4f6;
+    --bg-gradient: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+    --bg-card: #ffffff;
 
-  --text-main: #1f2937; /* เทาเข้มเกือบดำ */
-  --text-muted: #6b7280; /* เทากลาง */
+    --text-main: #1f2937;
+    /* เทาเข้มเกือบดำ */
+    --text-muted: #6b7280;
+    /* เทากลาง */
 
-  --primary: #4f46e5; /* Indigo (ม่วงคราม) */
-  --primary-light: #818cf8;
-  --accent: #06b6d4; /* Cyan (ฟ้าสดใส) */
+    --primary: #4f46e5;
+    /* Indigo (ม่วงคราม) */
+    --primary-light: #818cf8;
+    --accent: #06b6d4;
+    /* Cyan (ฟ้าสดใส) */
 
-  --code-bg: #1e293b; /* Dark Blue/Grey (โหมดมืดสำหรับโค้ด) */
-  --code-text: #38bdf8; /* ฟ้าสว่าง */
+    --code-bg: #1e293b;
+    /* Dark Blue/Grey (โหมดมืดสำหรับโค้ด) */
+    --code-text: #38bdf8;
+    /* ฟ้าสว่าง */
 
-  --border-color: #e5e7eb;
-  --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 20px 50px -12px rgba(79, 70, 229, 0.15);
+    --border-color: #e5e7eb;
+    --shadow-soft: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 20px 50px -12px rgba(79, 70, 229, 0.15);
 }
 
 /* ============ 2. Global Styles ============ */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  line-height: 1.8;
-  background: var(--bg-gradient);
-  color: var(--text-main);
-  padding: 60px 20px;
-  min-height: 100vh;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    line-height: 1.8;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    padding: 60px 20px;
+    min-height: 100vh;
 }
 
 /* ============ 3. Component Styles ============ */
 
 /* Badge: ปรับให้ดูทันสมัยขึ้น */
 .badge {
-  background: linear-gradient(to right, #e0e7ff, #fae8ff);
-  color: var(--primary);
-  font-size: 0.75em;
-  padding: 4px 12px;
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  vertical-align: middle;
-  font-family: "Outfit", sans-serif;
-  margin-left: 8px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(to right, #e0e7ff, #fae8ff);
+    color: var(--primary);
+    font-size: 0.75em;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    vertical-align: middle;
+    font-family: "Outfit", sans-serif;
+    margin-left: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* Pre: Dark Mode แบบ Pro */
 pre {
-  background: var(--code-bg);
-  color: #e2e8f0;
-  padding: 25px;
-  border-radius: 16px;
-  overflow-x: auto;
-  font-family: "Fira Code", Consolas, monospace;
-  margin: 30px 0;
-  border: 1px solid #334155;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
-  position: relative;
+    background: var(--code-bg);
+    color: #e2e8f0;
+    padding: 25px;
+    border-radius: 16px;
+    overflow-x: auto;
+    font-family: "Fira Code", Consolas, monospace;
+    margin: 30px 0;
+    border: 1px solid #334155;
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
 }
 
 /* Code: ไฮไลท์สวยๆ */
 code {
-  font-family: "Fira Code", Consolas, monospace;
-  background-color: transparent;
-  color: var(--code-text);
-  font-size: 0.9em;
+    font-family: "Fira Code", Consolas, monospace;
+    background-color: transparent;
+    color: var(--code-text);
+    font-size: 0.9em;
 }
+
 /* ถ้า code อยู่นอก pre ให้มีพื้นหลังจางๆ */
 p code,
 li code {
-  background-color: #e0e7ff;
-  color: var(--primary);
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-weight: 600;
+    background-color: #e0e7ff;
+    color: var(--primary);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
 }
 
 /* Card: เพิ่มมิติและความโค้งมน */
 .card {
-  background-color: var(--bg-card);
-  padding: 50px;
-  margin-bottom: 40px;
-  border-radius: 24px;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid #ffffff;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  overflow: hidden;
+    background-color: var(--bg-card);
+    padding: 50px;
+    margin-bottom: 40px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #ffffff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
 /* เส้นสีด้านบน Card */
 .card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: var(--primary); /* สี Default */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--primary);
+    /* สี Default */
 }
 
 /* Module Colors (ปรับสีให้ Soft ลง) */
 .card.mudule-1::before {
-  background: #f87171;
-} /* แดง */
+    background: #f87171;
+}
+
+/* แดง */
 .card.mudule-2::before {
-  background: #60a5fa;
-} /* ฟ้า */
+    background: #60a5fa;
+}
+
+/* ฟ้า */
 .card.mudule-3::before {
-  background: #34d399;
-} /* เขียว */
+    background: #34d399;
+}
+
+/* เขียว */
 .card.mudule-4::before {
-  background: #c084fc;
-} /* ม่วง */
+    background: #c084fc;
+}
+
+/* ม่วง */
 /* ลบ border-top เดิมออกเพราะใช้ pseudo-element แทน */
 .card.mudule-1,
 .card.mudule-2,
 .card.mudule-3,
 .card.mudule-4 {
-  border-top: none;
+    border-top: none;
 }
 
 .note {
-  background: linear-gradient(to right, #fff7ed, #fff);
-  border-left: 5px solid #f97316;
-  color: #9a3412;
-  padding: 20px 25px;
-  margin-top: 25px;
-  border-radius: 8px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    background: linear-gradient(to right, #fff7ed, #fff);
+    border-left: 5px solid #f97316;
+    color: #9a3412;
+    padding: 20px 25px;
+    margin-top: 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .note::before {
-  content: "💡";
-  font-size: 1.2em;
+    content: "💡";
+    font-size: 1.2em;
 }
 
 /* ============ 4. Group 1 Style: Header ============ */
 .header {
-  background: linear-gradient(135deg, var(--primary) 0%, #4338ca 100%);
-  box-shadow: 0 20px 40px -10px rgba(67, 56, 202, 0.4);
-  padding: 60px 30px;
-  border-radius: 24px;
-  text-align: center;
-  color: white;
-  margin-bottom: 60px;
-  position: relative;
-  overflow: hidden;
+    background: linear-gradient(135deg, var(--primary) 0%, #4338ca 100%);
+    box-shadow: 0 20px 40px -10px rgba(67, 56, 202, 0.4);
+    padding: 60px 30px;
+    border-radius: 24px;
+    text-align: center;
+    color: white;
+    margin-bottom: 60px;
+    position: relative;
+    overflow: hidden;
 }
 
 /* ลวดลายพื้นหลัง Header จางๆ */
 .header::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.1) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-  opacity: 0.3;
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.1) 1px,
+            transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
 }
 
 .header h1 {
-  font-family: "Outfit", sans-serif;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 2.5rem;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: "Outfit", sans-serif;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .header p.sub-header {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-style: normal;
-  opacity: 0.9;
-  font-weight: 300;
-  font-size: 1.1rem;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-style: normal;
+    opacity: 0.9;
+    font-weight: 300;
+    font-size: 1.1rem;
 }
 
 .header ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 35px;
-  position: relative;
-  z-index: 2;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+    position: relative;
+    z-index: 2;
 }
 
 .header .btn-text-link {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 .header .btn-text-link:hover {
-  background: white;
-  transform: scale(1.15) translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: white;
+    transform: scale(1.15) translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
 .header a {
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .header .btn-text-link:hover a {
-  color: var(--primary);
+    color: var(--primary);
 }
 
 /* ============ 5. Group 2 Style: Basic & Position ============ */
 .position1,
 .position2,
 .position3 {
-  display: inline-block;
-  margin: 10px;
-  padding: 15px;
-  background: #f8fafc;
-  border: 2px dashed #cbd5e1;
-  border-radius: 12px;
-  color: var(--text-muted);
-  font-size: 0.9em;
+    display: inline-block;
+    margin: 10px;
+    padding: 15px;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    color: var(--text-muted);
+    font-size: 0.9em;
 }
 
 /* ============ 6. Group 3 Style: Resize ============ */
 .img-fixed {
-  width: 260px;
-  height: 160px;
-  object-fit: cover;
-  border: 4px solid white;
-  box-shadow: var(--shadow-soft);
-  border-radius: 12px;
-  transition: transform 0.3s;
+    width: 260px;
+    height: 160px;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: var(--shadow-soft);
+    border-radius: 12px;
+    transition: transform 0.3s;
 }
+
 .img-fixed:hover {
-  transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 /* ============ 7. Group 4 Style: Object Fit ============ */
 .contain,
 .fill,
 .cover {
-  margin-bottom: 30px;
-  background-color: #f1f5f9;
-  text-align: center;
-  border: 1px dashed #94a3b8;
-  padding: 20px;
-  border-radius: 16px;
+    margin-bottom: 30px;
+    background-color: #f1f5f9;
+    text-align: center;
+    border: 1px dashed #94a3b8;
+    padding: 20px;
+    border-radius: 16px;
 }
+
 .contain img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  mix-blend-mode: multiply;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
 }
+
 .fill img {
-  width: 100%;
-  height: 200px;
-  object-fit: fill;
-  border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    object-fit: fill;
+    border-radius: 8px;
 }
+
 .cover img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* ============ 8. Group 6 Style: Gallery Grid ============ */
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
 }
+
 .gallery img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
+
 .gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  border-color: var(--accent);
-  z-index: 2;
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent);
+    z-index: 2;
 }
 
 /* ============ 9. Group 7 Style: Responsive ============ */
 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* ============ 10. Group 8 Style: Figure ============ */
 figure {
-  display: table;
-  margin: 20px auto;
-  background: white;
-  padding: 20px;
-  border: 1px solid #e2e8f0;
-  box-shadow: var(--shadow-soft);
-  border-radius: 16px;
-  transition: 0.3s;
+    display: table;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--shadow-soft);
+    border-radius: 16px;
+    transition: 0.3s;
 }
+
 figure:hover {
-  box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-hover);
 }
+
 figcaption {
-  text-align: center;
-  font-family: "Outfit", sans-serif;
-  font-size: 0.9em;
-  color: var(--text-muted);
-  margin-top: 15px;
-  font-style: normal;
-  font-weight: 500;
+    text-align: center;
+    font-family: "Outfit", sans-serif;
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-top: 15px;
+    font-style: normal;
+    font-weight: 500;
 }
 
 /* ============ 11. Footer / Back Link ============ */
 .back-link {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 50px;
-  text-decoration: none;
-  color: var(--text-main);
-  font-weight: 600;
-  padding: 12px 30px;
-  border-radius: 50px;
-  background: white;
-  transition: all 0.3s ease;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    display: inline-flex;
+    align-items: center;
+    margin-top: 50px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    background: white;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
+
 .back-link::before {
-  content: "←";
-  margin-right: 8px;
-  transition: transform 0.2s;
+    content: "←";
+    margin-right: 8px;
+    transition: transform 0.2s;
 }
+
 .back-link:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.15);
-  transform: translateY(-2px);
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.15);
+    transform: translateY(-2px);
 }
+
 .back-link:hover::before {
-  transform: translateX(-4px);
+    transform: translateX(-4px);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+a.btn-back {
+    display: inline-block;
+    color: var(--text-muted);
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    background-color: white;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+a.btn-back:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Helper class สำหรับโจทย์ข้อความสีแดงชมพู */
+.highlight-text {
+    color: var(--highlight-pink);
+    font-weight: bold;
 }

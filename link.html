@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workshop: Various Links</title>
-    
+
     <style>
         /* --- 1. Global Variables: Minimal Theme (จาก Formatting) --- */
         :root {
@@ -12,21 +13,25 @@
             --bg-card: #ffffff;
             --text-main: #333333;
             --text-muted: #666666;
-            --primary: #4a5568;       /* Slate Blue */
-            --accent: #3182ce;        /* Blue */
-            --success: #00a884;       /* Green */
-            --warning-bg: #fffaf0;    
+            --primary: #4a5568;
+            /* Slate Blue */
+            --accent: #3182ce;
+            /* Blue */
+            --success: #00a884;
+            /* Green */
+            --warning-bg: #fffaf0;
             --warning-text: #9c4221;
-            --error-bg: #fff5f5;      
-            --error-text: #c53030;    
+            --error-bg: #fff5f5;
+            --error-text: #c53030;
             --border-color: #e2e8f0;
-            --highlight-pink: #d53f8c; 
+            --highlight-pink: #d53f8c;
             --code-bg: #f7f9fa;
             --code-text: #e53e3e;
-            
+
             /* Additional Colors mapped to your classes */
             --color-purple: #805ad5;
-            --color-yellow: #d69e2e; /* ปรับให้เข้มขึ้นเพื่อให้อ่านง่ายบนพื้นขาว */
+            --color-yellow: #d69e2e;
+            /* ปรับให้เข้มขึ้นเพื่อให้อ่านง่ายบนพื้นขาว */
             --color-orange: #dd6b20;
             --color-red: #e53e3e;
             --color-black: #2d3748;
@@ -44,11 +49,15 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.7;
             padding: 60px 20px;
-            display: block; /* แก้จาก flex เพื่อให้เหมือน formatting */
+            display: block;
+            /* แก้จาก flex เพื่อให้เหมือน formatting */
         }
 
         /* จัดกึ่งกลางเหมือน Formatting */
-        body > h1, body > p, .card, footer {
+        body>h1,
+        body>p,
+        .card,
+        footer {
             max-width: 750px;
             margin-left: auto;
             margin-right: auto;
@@ -57,7 +66,8 @@
         /* --- Header --- */
         h1.main-title {
             text-align: center;
-            color: var(--text-main); /* เปลี่ยนจากสีชมพูเป็นสีหลัก */
+            color: var(--text-main);
+            /* เปลี่ยนจากสีชมพูเป็นสีหลัก */
             font-size: 2.2rem;
             margin-bottom: 10px;
             font-weight: 700;
@@ -74,7 +84,8 @@
         .card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 12px; /* ใช้ 12px เหมือน formatting */
+            border-radius: 12px;
+            /* ใช้ 12px เหมือน formatting */
             padding: 40px;
             margin-bottom: 40px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -87,11 +98,25 @@
         }
 
         /* Mapping Border Classes ให้เข้ากับ Theme (แบบเส้นบาง Clean) */
-        .card.border-pink { border-top: 4px solid var(--highlight-pink); }
-        .card.border-blue { border-top: 4px solid var(--accent); }
-        .card.border-red { border-top: 4px solid var(--color-red); }
-        .card.border-orange { border-top: 4px solid var(--color-orange); }
-        .card.border-purple { border-top: 4px solid var(--color-purple); }
+        .card.border-pink {
+            border-top: 4px solid var(--highlight-pink);
+        }
+
+        .card.border-blue {
+            border-top: 4px solid var(--accent);
+        }
+
+        .card.border-red {
+            border-top: 4px solid var(--color-red);
+        }
+
+        .card.border-orange {
+            border-top: 4px solid var(--color-orange);
+        }
+
+        .card.border-purple {
+            border-top: 4px solid var(--color-purple);
+        }
 
         .card h2 {
             color: var(--primary);
@@ -114,18 +139,24 @@
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
-            background-color: #fff; /* พื้นขาว */
+            background-color: #fff;
+            /* พื้นขาว */
         }
-        
+
         .link-title {
-            color: var(--accent); /* เปลี่ยนเป็นสีฟ้า Theme */
+            color: var(--accent);
+            /* เปลี่ยนเป็นสีฟ้า Theme */
             font-weight: 600;
             font-size: 1.1rem;
             text-decoration: none;
             display: block;
             margin-bottom: 5px;
         }
-        .link-title:hover { text-decoration: underline; color: var(--primary); }
+
+        .link-title:hover {
+            text-decoration: underline;
+            color: var(--primary);
+        }
 
         .code-tag {
             background-color: var(--code-bg);
@@ -141,14 +172,16 @@
         .code-block {
             background-color: var(--code-bg);
             padding: 15px;
-            border-left: 4px solid var(--primary); /* เปลี่ยนเป็นสี Primary */
+            border-left: 4px solid var(--primary);
+            /* เปลี่ยนเป็นสี Primary */
             font-family: 'SFMono-Regular', Consolas, monospace;
             color: var(--text-main);
             font-size: 0.95em;
             line-height: 1.6;
             margin-bottom: 20px;
             border-radius: 4px;
-            white-space: pre-wrap; /* เพื่อให้ code ไม่ล้น */
+            white-space: pre-wrap;
+            /* เพื่อให้ code ไม่ล้น */
         }
 
         .text-link {
@@ -157,12 +190,16 @@
             cursor: pointer;
             font-weight: 500;
         }
-        .text-link:hover { color: var(--primary); }
+
+        .text-link:hover {
+            color: var(--primary);
+        }
 
         /* --- Buttons Style Remapping (ทำให้ Clean ไม่ Glow) --- */
-        
+
         /* ปุ่มพื้นฐานใน Theme */
-        button, .btn-std {
+        button,
+        .btn-std {
             border: 1px solid var(--border-color);
             background-color: white;
             color: var(--text-main);
@@ -172,11 +209,14 @@
             font-size: 0.9rem;
             transition: all 0.2s;
         }
-        button:hover, .btn-std:hover {
+
+        button:hover,
+        .btn-std:hover {
             border-color: var(--primary);
             color: var(--primary);
             background-color: var(--bg-body);
-            box-shadow: none; /* ลบเงา Glow */
+            box-shadow: none;
+            /* ลบเงา Glow */
         }
 
         /* .btn-yellow (ปรับเป็นสไตล์ Minimal Warning) */
@@ -191,9 +231,11 @@
             display: inline-block;
             transition: all 0.2s;
         }
+
         .btn-yellow:hover {
             background-color: #faf089;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* เงาบางๆ */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            /* เงาบางๆ */
         }
 
         /* .btn-purple (ปรับเป็น Solid Flat) */
@@ -209,10 +251,13 @@
             margin-bottom: 20px;
             transition: all 0.2s;
         }
+
         .btn-purple:hover {
-            background-color: #6b46c1; /* เข้มขึ้นนิดหน่อย */
+            background-color: #6b46c1;
+            /* เข้มขึ้นนิดหน่อย */
             transform: translateY(-1px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* เงาธรรมชาติ */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* เงาธรรมชาติ */
         }
 
         .tag-gray {
@@ -252,9 +297,10 @@
             font-weight: 600;
             transition: all 0.2s;
         }
+
         .btn-orange-flat:hover {
             background-color: #c05621;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         /* .btn-orange-red (Round) */
@@ -263,14 +309,16 @@
             color: white;
             border: none;
             padding: 10px 24px;
-            border-radius: 50px; /* คงความกลมไว้ */
+            border-radius: 50px;
+            /* คงความกลมไว้ */
             font-weight: 600;
             transition: all 0.2s;
         }
+
         .btn-orange-red:hover {
             background-color: #c53030;
             transform: translateY(-1px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         /* .btn-black (เปลี่ยนจาก Black/Gold Glow เป็น Dark Slate Clean) */
@@ -283,23 +331,27 @@
             border-radius: 6px;
             transition: all 0.2s;
         }
+
         .btn-black:hover {
             background-color: #1a202c;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-shadow: none; /* ลบเรืองแสง */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-shadow: none;
+            /* ลบเรืองแสง */
         }
 
         /* --- Image Link --- */
         .yt-logo {
             width: 150px;
             border-radius: 8px;
-            border: 1px solid var(--border-color); /* เพิ่มขอบให้ดูเรียบร้อย */
+            border: 1px solid var(--border-color);
+            /* เพิ่มขอบให้ดูเรียบร้อย */
             margin-top: 10px;
             transition: transform 0.2s;
         }
+
         .yt-logo:hover {
             transform: scale(1.02);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         .footer-note {
@@ -311,9 +363,13 @@
             background-color: var(--bg-body);
             padding: 10px;
             border-radius: 6px;
-            border-left: 3px solid var(--accent); /* ใช้สีฟ้า Theme */
+            border-left: 3px solid var(--accent);
+            /* ใช้สีฟ้า Theme */
         }
-        .footer-note span.icon { margin-right: 8px; }
+
+        .footer-note span.icon {
+            margin-right: 8px;
+        }
 
         .highlight-gray {
             background-color: #e2e8f0;
@@ -340,13 +396,15 @@
         a.btn-back:hover {
             color: var(--primary);
             border-color: var(--primary);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
-        
-        footer { text-align: center; }
 
+        footer {
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
 
     <h1 class="main-title">Workshop: Various Links</h1>
@@ -357,13 +415,15 @@
         <div class="link-box">
             <a href="https://www.wikipedia.org" target="_blank" class="link-title">Visit Wikipedia</a>
             <div>
-                <span class="code-tag">target="_blank"</span> <span style="font-size:14px; color:#666;">เปิดลิงก์ในแท็บใหม่</span>
+                <span class="code-tag">target="_blank"</span> <span
+                    style="font-size:14px; color:#666;">เปิดลิงก์ในแท็บใหม่</span>
             </div>
         </div>
         <div class="link-box">
             <a href="https://www.google.com" target="_self" class="link-title">Visit Google</a>
             <div>
-                <span class="code-tag">target="_self"</span> <span style="font-size:14px; color:#666;">เปิดลิงก์ในหน้าเดิม</span>
+                <span class="code-tag">target="_self"</span> <span
+                    style="font-size:14px; color:#666;">เปิดลิงก์ในหน้าเดิม</span>
             </div>
         </div>
     </div>
@@ -371,9 +431,9 @@
     <div class="card border-blue">
         <h2>2. Internal Links & Anchor Links</h2>
         <div class="code-block">&lt;a href="about.html"&gt;About Us&lt;/a&gt;
-&lt;a href="#jump"&gt;Jump to Section&lt;/a&gt;
-&lt;h3 id="jump"&gt;This is the jump target&lt;/h3&gt;</div>
-        
+            &lt;a href="#jump"&gt;Jump to Section&lt;/a&gt;
+            &lt;h3 id="jump"&gt;This is the jump target&lt;/h3&gt;</div>
+
         <a href="#jump" class="text-link" style="display:block; margin-bottom:15px;">Click to Jump</a>
         <h3 id="jump" style="color:var(--text-main);">This is the jump target.</h3>
     </div>
@@ -381,19 +441,20 @@
     <div class="card border-red">
         <h2>3. Email Links</h2>
         <div class="code-block" style="border-left-color: var(--color-red);">
-&lt;a href="mailto:student@example.com?subject=Hello"&gt;
-Send an Email
-&lt;/a&gt;</div>
+            &lt;a href="mailto:student@example.com?subject=Hello"&gt;
+            Send an Email
+            &lt;/a&gt;</div>
         <a href="mailto:student@example.com?subject=Hello" class="text-link">Send an Email</a>
     </div>
 
     <div class="card border-orange">
         <h2>4. Download Links</h2>
         <div class="code-block" style="border-left-color: var(--color-orange);">
-&lt;a href="files/sample.txt" download&gt;Download File&lt;/a&gt;</div>
-        
+            &lt;a href="files/sample.txt" download&gt;Download File&lt;/a&gt;</div>
+
         <a href="#" class="btn-yellow">Download Text File</a>
-        <div style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">ต้องมีไฟล์ในโฟลเดอร์จึงจะดาวน์โหลดได้จริง</div>
+        <div style="font-size: 12px; color: var(--text-muted); margin-top: 5px;">
+            ต้องมีไฟล์ในโฟลเดอร์จึงจะดาวน์โหลดได้จริง</div>
     </div>
 
     <div class="card border-purple">
@@ -401,8 +462,8 @@ Send an Email
         <p class="desc">ลิงก์ที่ออกแบบให้คล้ายปุ่ม เหมาะกับปุ่มสมัคร ปุ่มอ่านเพิ่มเติม หรือปุ่มนำทาง</p>
 
         <div class="code-block">&lt;a href="https://www.example.com" class="btn-link"&gt;
-Visit Website
-&lt;/a&gt;</div>
+            Visit Website
+            &lt;/a&gt;</div>
 
         <a href="#" class="btn-purple">Visit Website</a>
 
@@ -411,10 +472,10 @@ Visit Website
         </div>
 
         <div class="code-block">&lt;button onclick="document.location='index.html'"&gt;HTML Tutorial&lt;/button&gt;
-- มักใช้เมื่อลิงก์ไป หน้าในเว็บเดียวกัน
+            - มักใช้เมื่อลิงก์ไป หน้าในเว็บเดียวกัน
 
-&lt;button onclick="location.href='https://www.example.com'"&gt;Visit Website&lt;/button&gt;
-- นิยมใช้มากกว่า เหมาะทั้งลิงก์ภายในและภายนอก</div>
+            &lt;button onclick="location.href='https://www.example.com'"&gt;Visit Website&lt;/button&gt;
+            - นิยมใช้มากกว่า เหมาะทั้งลิงก์ภายในและภายนอก</div>
 
         <div style="margin-bottom: 40px;">
             <button class="btn-std">HTML Tutorial</button>
@@ -422,7 +483,7 @@ Visit Website
         </div>
 
         <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 30px 0;">
-        
+
         <div class="fancy-buttons-grid">
             <div>
                 <div class="grid-header">ปุ่ม document.location</div>
@@ -452,17 +513,19 @@ Visit Website
         <p class="desc">คลิกที่รูปภาพเพื่อเปิดลิงก์</p>
 
         <div class="code-block" style="border-left-color: var(--color-orange);">
-&lt;a href="https://youtube.com"&gt;
-&lt;img src="images/sample.jpg" width="250"&gt;
-&lt;/a&gt;</div>
+            &lt;a href="https://youtube.com"&gt;
+            &lt;img src="images/sample.jpg" width="250"&gt;
+            &lt;/a&gt;</div>
 
         <a href="https://www.youtube.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" class="yt-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube"
+                class="yt-logo">
         </a>
 
         <div class="footer-note">
             <span class="icon">💡</span>
-            <span>หากต้องการใช้รูปของตนเอง ต้องเก็บรูปไว้ในโฟลเดอร์ เช่น <span class="highlight-gray">images/photo.jpg</span></span>
+            <span>หากต้องการใช้รูปของตนเอง ต้องเก็บรูปไว้ในโฟลเดอร์ เช่น <span
+                    class="highlight-gray">images/photo.jpg</span></span>
         </div>
     </div>
 
@@ -471,4 +534,5 @@ Visit Website
     </footer>
 
 </body>
+
 </html>

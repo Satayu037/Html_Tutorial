@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workshop - HTML Images</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Workshop: HTML Images</h1>
+            <p class="sub-header">ฝึกใช้แท็ก <code>&lt;img&gt;</code> หลายรูปแบบ พร้อมตัวอย่างและแบบฝึกหัด</p>
+            <ul>
+                <li class="btn-text-link"><a href="#s1">1</a></li>
+                <li class="btn-text-link"><a href="#s2">2</a></li>
+                <li class="btn-text-link"><a href="#s3">3</a></li>
+                <li class="btn-text-link"><a href="#s4">4</a></li>
+                <li class="btn-text-link"><a href="#s5">5</a></li>
+                <li class="btn-text-link"><a href="#s6">6</a></li>
+                <li class="btn-text-link"><a href="#s7">7</a></li>
+                <li class="btn-text-link"><a href="#s8">8</a></li>
+            </ul>
+        </div>
+
+        <main>
+            <div class="card mudule-1" id="s1">
+                <h2>1) Image Basic <span class="badge">src/alt</span></h2>
+                <p>รูปภาพใน HTML ใช้แท็ก <code>img</code> โดยต้องมี <code>src</code> และควรมี <code>alt</code> เสมอ</p>
+                
+                <pre><code>&lt;img src="images/photo.jpg" alt="ภาพตัวอย่าง"&gt;</code></pre>
+                
+                <div style="text-align: center;">
+                    <div class="position1">
+                        <p>Img 1</p>
+                        <img src="https://picsum.photos/100/100?random=1" alt="ตัวอย่าง 1">
+                    </div>
+                    <div class="position2">
+                         <p>Img 2</p>
+                        <img src="https://picsum.photos/100/100?random=2" alt="ตัวอย่าง 2">
+                    </div>
+                    <div class="position3">
+                         <p>Img 3</p>
+                        <img src="https://picsum.photos/100/100?random=3" alt="ตัวอย่าง 3">
+                    </div>
+                </div>
+
+                <div class="note">
+                    <span><b>alt</b> สำคัญมาก: ช่วย SEO + ใช้แทนภาพเมื่อโหลดไม่ได้ + ช่วยผู้ใช้ Screen Reader</span>
+                </div>
+            </div>
+
+            <div class="card mudule-2" id="s2">
+                <h2>2) Resize & Aspect Ratio</h2>
+                <p>ถ้ากำหนดทั้งความกว้างและสูง ให้ใช้ <code>object-fit</code> เพื่อไม่ให้ภาพบิด</p>
+                <pre><code>/* ครอปภาพให้พอดีกรอบ */
+.img-fixed {
+  width: 260px;
+  height: 160px;
+  object-fit: cover;
+}</code></pre>
+                
+                <div style="text-align: center;">
+                    <img class="img-fixed" src="https://picsum.photos/500/300" alt="รูปภาพ">
+                    <p style="margin-top: 10px; font-size: 0.9em; color: #666;">(ภาพนี้ถูกบังคับขนาด 260x160 px)</p>
+                </div>
+            </div>
+
+            <div class="card mudule-3" id="s3">
+                <h2>3) Object fit <span class="badge">contain fill cover</span></h2>
+                <p>เปรียบเทียบการแสดงผลเมื่อกำหนดกรอบขนาด <strong>800x200 px</strong></p>
+
+                <div style="display: grid; gap: 20px;">
+                    <div>
+                        <h3><code>contain</code> (เห็นภาพครบ)</h3>
+                        <div class="contain">
+                            <img src="https://picsum.photos/400/300" alt="Contain Example">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3><code>fill</code> (ยืดจนเต็ม/ภาพเบี้ยว)</h3>
+                        <div class="fill">
+                            <img src="https://picsum.photos/400/300" alt="Fill Example">
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3><code>cover</code> (ครอปเต็มพื้นที่/สวยงาม)</h3>
+                        <div class="cover">
+                            <img src="https://picsum.photos/400/300" alt="Cover Example">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mudule-4" id="s4">
+                <h2>4) Image Link <span class="badge">a + img</span></h2>
+                <p>คลิกที่รูปเพื่อเปิดลิงก์ เหมาะกับ banner หรือ thumbnail</p>
+                
+                <pre><code>&lt;a href="https://www.youtube.com" target="_blank"&gt;
+  &lt;img src="banner.jpg" alt="Banner"&gt;
+&lt;/a&gt;</code></pre>
+
+                <div style="text-align: center;">
+                    <a href="https://www.youtube.com" target="_blank">
+                        <img src="https://picsum.photos/800/250" alt="Banner Link" style="border-radius: 12px; transition: 0.3s; width: 100%;">
+                    </a>
+                    <p style="font-size: 0.8em; margin-top: 5px;">(ลองคลิกที่รูปด้านบน)</p>
+                </div>
+
+                <div class="note">
+                    <span>ใช้ <code>target="_blank"</code> เมื่อต้องการให้ลิงก์เปิดในแท็บใหม่</span>
+                </div>
+            </div>
+
+            <div class="card" id="s5">
+                <h2>5) Image Gallery <span class="badge">grid</span></h2>
+                <p>แสดงรูปหลายรูปด้วย Grid ให้จัดเรียงสวยและเป็นระเบียบ</p>
+                
+                <pre><code>.gallery { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); 
+  gap: 15px; 
+}</code></pre>
+
+                <div class="gallery">
+                    <img src="https://picsum.photos/200/200?random=10" alt="Img 1">
+                    <img src="https://picsum.photos/200/200?random=11" alt="Img 2">
+                    <img src="https://picsum.photos/200/200?random=12" alt="Img 3">
+                    <img src="https://picsum.photos/200/200?random=13" alt="Img 4">
+                    <img src="https://picsum.photos/200/200?random=14" alt="Img 5">
+                    <img src="https://picsum.photos/200/200?random=15" alt="Img 6">
+                </div>
+            </div>
+
+            <div class="card" id="s6">
+                <h2>6) Responsive Images <span class="badge">max-width: 100%</span></h2>
+                <p>ทำให้ภาพไม่ล้นการ์ดและย่อขยายตามหน้าจออัตโนมัติ</p>
+                
+                <pre><code>img {
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+
+                <img src="https://picsum.photos/1000/500" alt="รูปทะเล" style="width: 100%; border-radius: 8px;">
+            </div>
+
+            <div class="card" id="s7">
+                <h2>7) Figure + Caption <span class="badge">semantic</span></h2>
+                <p>ใช้แท็ก <code>&lt;figure&gt;</code> และ <code>&lt;figcaption&gt;</code> เพื่ออธิบายภาพ (เหมาะกับบทความ)</p>
+
+                <figure>
+                    <img src="https://picsum.photos/600/400" alt="ทิวทัศน์ธรรมชาติ">
+                    <figcaption>รูปที่ 1: ตัวอย่างการใช้แท็ก figure และ figcaption</figcaption>
+                </figure>
+            </div>
+
+            <div class="card" id="s8">
+                <h2>8) ใช้รูปจากเครื่อง (Local Images) <span class="badge">VS Code</span></h2>
+                <p>จัดโฟลเดอร์รูปให้เป็นระเบียบ เช่น <code>images/</code> แล้วอ้างอิงแบบ Relative Path</p>
+                
+                <pre><code>my_project/ 
+ ├─ index.html 
+ └─ images/ 
+     ├─ photo1.jpg 
+     └─ banner.png 
+
+&lt;img src="images/photo1.jpg" alt="My Photo"&gt;</code></pre>
+                
+                <div class="note">
+                    <span>แนะนำให้ตั้งชื่อไฟล์รูปเป็นภาษาอังกฤษตัวเล็ก ไม่มีช่องว่าง (ใช้ - แทน) เช่น <code>my-photo-1.jpg</code></span>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+            <a class="back-link" href="index.html">Back to HTML Tutorial</a>
+        </footer>
+
+    </div> </body>
+</html>

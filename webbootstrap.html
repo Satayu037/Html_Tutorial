@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Pro | Bootstrap Reimagined</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-soft: rgba(0, 102, 255, 0.05);
+            --bg-body: #F9FAFB;
+            --text-main: #111827;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Glassmorphism */
+        .navbar {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8) !important;
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--text-main) !important;
+            font-size: 1.4rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-muted) !important;
+            margin: 0 10px;
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        /* Carousel Adjustments */
+        .carousel-item img {
+            height: 450px;
+            object-fit: cover;
+            filter: brightness(0.9);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 120px 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0052CC;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .btn-outline-secondary {
+            border-color: var(--border);
+            color: var(--text-main);
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        /* Minimal Cards */
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+
+        /* Data Table */
+        .table-container {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .table thead th {
+            background: #F9FAFB;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            padding: 18px;
+            border: none;
+        }
+
+        .table td {
+            padding: 18px;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Contact Form */
+        .contact-form-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .form-control, .form-select {
+            border: 1px solid var(--border);
+            background-color: #F9FAFB;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            background-color: var(--white);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-soft);
+        }
+
+        /* Modern Footer */
+        .modern-footer {
+            background: #000;
+            color: #9CA3AF;
+            padding: 80px 0 40px;
+        }
+
+        .footer-brand {
+            color: var(--white) !important;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .social-circle {
+            width: 40px;
+            height: 40px;
+            background: #1F2937;
+            color: var(--white);
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+
+        .social-circle:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .badge-status {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bootstrap<span class="text-primary">.</span></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">บริการ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#data">ข้อมูล</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">ติดต่อ</a></li>
+                    <li class="nav-item ms-lg-3"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+   <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="https://images.pexels.com/photos/33207997/pexels-photo-3320712.jpeg" class="d-block w-100 "
+                    alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="https://images.pexels.com/photos/460621/pexels-photo-4606471.jpeg" class="d-block w-100"
+                    alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="https://images.pexels.com/photos/355321/pexels-photo-355381.jpeg" class="d-block w-100"
+                    alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="https://images.pexels.com/photos/534164/pexels-photo-534145.jpeg" class="d-block w-100"
+                    alt="...">
+            </div>
+        </div>
+
+    <section class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <span class="hero-badge">เวอร์ชัน 2.0 พร้อมใช้งานแล้ว</span>
+                    <h1 class="display-3 fw-bolder mb-4" style="letter-spacing: -2px;">ยกระดับเว็บไซต์ของคุณด้วยสไตล์ที่ <span class="text-primary">เรียบง่าย</span></h1>
+                    <p class="lead text-muted mb-5">เราเชื่อในพลังของความว่างเปล่า การจัดวางที่ถูกที่ถูกทาง และประสบการณ์การใช้งานที่ลื่นไหลที่สุดสำหรับผู้ใช้ของคุณ</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="#features" class="btn btn-primary">ดูคุณสมบัติ</a>
+                        <a href="#" class="btn btn-outline-secondary">เอกสารประกอบ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-5 my-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold h1">คุณสมบัติระดับโปร</h2>
+                <p class="text-muted">ทุกอย่างที่คุณต้องการในการสร้าง SaaS ที่สมบูรณ์แบบ</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h4 class="fw-bold mb-3">UI ที่สวยงาม</h4>
+                        <p class="text-muted mb-4">ออกแบบมาให้สะอาดตาและโฟกัสที่เนื้อหาเป็นสำคัญ ลดสิ่งรบกวนสายตาลง 80%</p>
+                        <a href="#" class="text-primary text-decoration-none fw-semibold">เรียนรู้เพิ่มเติม <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <h4 class="fw-bold mb-3">Responsive แท้จริง</h4>
+                        <p class="text-muted mb-4">แสดงผลได้ไร้ที่ติในทุกขนาดหน้าจอ ตั้งแต่ iPhone ขนาดเล็กไปจนถึงจอ 4K</p>
+                        <a href="#" class="text-primary text-decoration-none fw-semibold">เรียนรู้เพิ่มเติม <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="feature-card">
+                        <div class="icon-box"><i class="fa-solid fa-bolt-lightning"></i></div>
+                        <h4 class="fw-bold mb-3">ประสิทธิภาพสูงสุด</h4>
+                        <p class="text-muted mb-4">โค้ดที่ปรับจูนมาอย่างดี ทำให้เว็บไซต์ของคุณโหลดเร็วเหมือนสายฟ้าฟาด</p>
+                        <a href="#" class="text-primary text-decoration-none fw-semibold">เรียนรู้เพิ่มเติม <i class="fa-solid fa-arrow-right ms-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="data" class="py-5 bg-light">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                    <h2 class="fw-bold">ข้อมูลการบริหาร</h2>
+                    <p class="text-muted mb-0">ตารางแสดงสถานะผู้ดูแลระบบแบบเรียลไทม์</p>
+                </div>
+                <button class="btn btn-primary btn-sm px-3">Export CSV</button>
+            </div>
+            <div class="table-container">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>ชื่อ-นามสกุล</th>
+                            <th>ตำแหน่ง</th>
+                            <th>สถานะ</th>
+                            <th>อัปเดตล่าสุด</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="fw-semibold">สมชาย ใจดี</span></td>
+                            <td>System Admin</td>
+                            <td><span class="badge-status bg-success-subtle text-success">Active</span></td>
+                            <td class="text-muted small">2 นาทีที่แล้ว</td>
+                        </tr>
+                        <tr>
+                            <td><span class="fw-semibold">สมหญิง พัฒนา</span></td>
+                            <td>Fullstack Developer</td>
+                            <td><span class="badge-status bg-warning-subtle text-warning">Pending</span></td>
+                            <td class="text-muted small">1 ชม. ที่แล้ว</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 my-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-5">
+                    <h2 class="display-5 fw-bold mb-4">มาคุยกันว่าเราจะช่วยคุณได้อย่างไร</h2>
+                    <p class="text-muted mb-5">ทีมงานของเราพร้อมให้คำปรึกษาตลอด 24 ชั่วโมง ไม่ว่าจะเป็นเรื่องโปรเจกต์ขนาดเล็กหรือใหญ่</p>
+                    <div class="d-flex gap-4 mb-4">
+                        <div class="icon-box mb-0"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">สายด่วน</h6>
+                            <p class="text-muted mb-0">08-0920-6317</p>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-4">
+                        <div class="icon-box mb-0"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h6 class="fw-bold mb-1">อีเมล</h6>
+                            <p class="text-muted mb-0">support@minimal.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="contact-form-card">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-semibold">ชื่อของคุณ</label>
+                                    <input type="text" class="form-control" placeholder="John Doe">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label fw-semibold">อีเมลติดต่อ</label>
+                                    <input type="email" class="form-control" placeholder="john@example.com">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label class="form-label fw-semibold">ข้อความถึงเรา</label>
+                                    <textarea class="form-control" rows="4" placeholder="ระบุรายละเอียดโปรเจกต์ของคุณ..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3">ส่งข้อความ</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-12">
+                    <a href="#" class="footer-brand">MINIMAL.</a>
+                    <p class="mb-4">สร้างสรรค์ประสบการณ์ดิจิทัลที่เรียบง่ายแต่ทรงพลัง ด้วยมาตรฐานการออกแบบระดับโลก</p>
+                    <div class="social-links">
+                        <a href="#" class="social-circle"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-circle"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-circle"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">บริษัท</h5>
+                    <div class="footer-links">
+                        <a href="#">เกี่ยวกับเรา</a>
+                        <a href="#">ร่วมงานกับเรา</a>
+                        <a href="#">บล็อก</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="footer-title">บริการ</h5>
+                    <div class="footer-links">
+                        <a href="#">UI/UX Design</a>
+                        <a href="#">Development</a>
+                        <a href="#">Marketing</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="small mb-3">รับข่าวสารอัปเดตดีไซน์ใหม่ล่าสุดก่อนใคร</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control bg-dark border-0 text-white" placeholder="อีเมลของคุณ">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-5 border-secondary border-opacity-25">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <span class="small">© 2026  All rights reserved.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end footer-links mb-0">
+                    <a href="#" class="small me-3">Privacy Policy</a>
+                    <a href="#" class="small">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<footer>
+            <a href="index.html" class="btn-back">← Back to Tutorials</a>
+        </footer>
+</body>
+</html>

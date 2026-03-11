@@ -743,3 +743,27 @@ footer {
     color: var(--primary-color);
   }
 }
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+a.btn-back {
+  display: inline-block;
+  color: var(--text-muted);
+  padding: 10px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  background-color: rgb(170, 47, 47);
+}
+
+a.btn-back:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background-color: #000000;
+}
